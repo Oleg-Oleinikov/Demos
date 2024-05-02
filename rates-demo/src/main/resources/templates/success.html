@@ -1,0 +1,11 @@
+<html xmlns:th="https://www.thymeleaf.org"><body>
+<h1>Step 3: Success</h1><br/><br/>
+
+<div th:text="'ShipID: ' + ${shipmentResponse.shipId}"></div><br/>
+<div th:text="'Tracking #: ' + ${shipmentResponse.trackingNumbers}"></div><br/><br/>
+
+<form action="http://localhost:8087/label" method="post">
+	<input type="hidden" name="labelUrl" th:value="${shipmentResponse.labelUrl}">
+	<input type="submit" value="Download PDF Label">
+</form>
+</body></html>

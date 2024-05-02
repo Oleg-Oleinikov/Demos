@@ -1,0 +1,44 @@
+<html xmlns:th="https://www.thymeleaf.org"><body>
+<div th:if="${errorMessage != null}" style="color:red">
+	<p>ERROR!</p>
+	<p th:text="${errorMessage}"/>
+	<p th:text="${errorDescription}"/>
+</div><br/>
+<h1>Step 1. Enter initial information.</h1><br/>
+<form action="http://localhost:8087/rates" method="post">
+	<table style="width:25%"><tr><th>Original Address</th><th>Destination Address</th></tr>
+	<tr>	<td align="right">
+		<div>
+			<label for="s_address_line">Address:</label> <input type="text" id="s_address_line" name="from.streetAddress" value="25 Canyon avenue"><br>
+			<label for="s_city">City:</label> <input type="text" id="s_city" name="from.city" value="North York"><br>
+			<label for="s_province">Province:</label> <input type="text" id="s_province" name="from.state" value="ON"><br>
+			<label for="s_country">Country:</label> <input type="text" id="s_country" name="from.countryCode" value="CA"><br>
+			<label for="s_postal_code">Postal Code:</label> <input type="text" id="s_postal_code" name="from.postalCode" value="M3H4Y1"><br>
+			<label for="s_company_name">Company Name:</label> <input type="text" id="s_company_name" name="from.companyName" value="Alo From"><br>
+			<label for="s_phone_number">Phone number:</label> <input type="text" id="s_phone_number" name="from.phone" value="647 711 2233"><br>
+			<label for="s_attention">Attention:</label> <input type="text" id="s_attention" name="from.attention" value="John">
+		</div>
+	</td><td align="right">
+		<div>
+			<label for="d_address_line">Address:</label> <input type="text" id="d_address_line" name="to.streetAddress" value="2031 Westree drive"><br>
+			<label for="d_city">City:</label> <input type="text" id="d_city" name="to.city" value="Oakville"><br>
+			<label for="d_province">Province:</label> <input type="text" id="d_province" name="to.state" value="ON"><br>
+			<label for="d_country">Country:</label> <input type="text" id="d_country" name="to.countryCode" value="CA"><br>
+			<label for="d_postal_code">Postal Code:</label> <input type="text" id="d_postal_code" name="to.postalCode" value="L6M3W3"><br>
+			<label for="d_company_name">Company Name:</label> <input type="text" id="d_company_name" name="to.companyName" value="Alo To"><br>
+			<label for="d_phone_number">Phone Number:</label> <input type="text" id="d_phone_number" name="to.phone" value="647 711 2234"><br>
+			<label for="d_attention">Attention:</label> <input type="text" id="d_attention" name="to.attention" value="Cyndy">
+		</div>
+	</td></tr><tr></tr><tr><th>Package</th></tr><tr><td align="right">
+		<div>
+			<label for="p_length">Length:</label> <input type="text" id="p_length" name="lineItems[0].length" value="10"><br>
+			<label for="p_width">Width:</label> <input type="text" id="p_width" name="lineItems[0].width" value="8"><br>
+			<label for="p_height">Height:</label> <input type="text" id="p_height" name="lineItems[0].height" value="6"><br>
+			<label for="p_weight">Weight:</label> <input type="text" id="p_weight" name="lineItems[0].weight" value="2">
+		</div>
+	</td></tr>
+	</table>
+	<br/><label for="shipDate">Ship date:</label> <input type="text" id="shipDate" name="shipDate" value="2024-05-08"><br/>
+<br/><input type="submit" value="Get rates">
+</form>
+</body></html>

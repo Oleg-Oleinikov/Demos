@@ -1,0 +1,19 @@
+<html xmlns:th="https://www.thymeleaf.org"><body>
+<div th:if="${errorMessage != null}" style="color:red">
+	<p>ERROR!</p>
+	<p th:text="${errorMessage}"/>
+	<p th:text="${errorDescription}"/>
+</div><br/>
+<h1>Step 2: Choose Carrier</h1><br/>
+<form action="http://localhost:8087/shipments" method="post" th:object="${selected}" >
+	<table style="width:20%"><tr><th></th><th>Carrier</th><th>Service</th><th>Price</th></tr>
+	<tr th:each="rate : ${ratesResponse.availableRates}">
+		<td><input type="radio" th:field="*{value}" th:value="${rate.quoteId}" /></td>
+		<td th:text="${rate.carrierName}"></td>
+		<td th:text="${rate.serviceName}"></td>
+		<td th:text="${rate.totalCharge.amountFormatted}"></td>
+	</tr></table>
+	
+<br/><input type="submit" value="Create shipment">
+</form>
+</body></html>
